@@ -1,8 +1,8 @@
 <% provide(:title, "All Users") %>
 
 <% User.all.each do |user| %>
-	<h1 >
-		<%= gravatar_for user %>
+	<h1>
+		<%= gravatar_for user, size: 50 %>
 		<%= user.name %>, <%= mail_to user.email, user.email, target: '_blank' %>
 	</h1>
 <% end %>
