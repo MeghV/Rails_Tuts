@@ -1,0 +1,14 @@
+<li>
+	<%= gravatar_for user, size: 52 %>
+	<%= user.name %>, <%= mail_to user.email, user.email, target: '_blank' %>
+	<% if signed_in? && current_user.admin? && !current_user?(user) %>
+    | <%= link_to "delete", user, method: :delete,
+                                  data: { confirm: "Are you sure you want to delete #{user.name}?" } %>                             
+  <% end %>
+  	<% if user.admin? %>
+  		<p class="admin">ADMIN</p>
+  	<% end %>
+	<br />
+	<h6>Joined <%= time_ago_in_words(user.created_at) %> ago</h6>
+
+</li>

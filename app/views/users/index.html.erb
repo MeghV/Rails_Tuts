@@ -1,8 +1,14 @@
-<% provide(:title, "All Users") %>
+<% provide(:title, "Our Lovely Users") %>
 
-<% User.all.each do |user| %>
-	<h1>
-		<%= gravatar_for user, size: 50 %>
-		<%= user.name %>, <%= mail_to user.email, user.email, target: '_blank' %>
-	</h1>
+<% unless signed_in? %>
+	<%= link_to "Join us!", signup_path, {class: "btn btn-lg btn-primary", role: "button", style: "width:100%"} %>
 <% end %>
+<h1>Our Lovely Users</h1>
+
+<%= will_paginate @collection, renderer: BootstrapPagination::Rails %>
+
+<ul class="users">
+	<%= render @users.order('users.created_at DESC') %>
+</ul>
+
+<%= will_paginate @collection, renderer: BootstrapPagination::Rails %>

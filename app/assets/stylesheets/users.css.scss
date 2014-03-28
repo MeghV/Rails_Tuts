@@ -1,3 +1,31 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$grayLighter: #eee;
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
+
+  h6 {
+    margin-top: 2px;
+    color: #999;
+  }
+
+  .admin {
+    display: inline;
+  font-size: .7em;
+  background-color: #34495e;
+  padding: 3px;
+  border-radius: 5px;
+  color: #ecf0f1;
+  }
+}
